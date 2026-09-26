@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+﻿import React, { ReactNode, useEffect } from 'react';
 import { cn } from '@/lib/cn';
 import { X } from 'lucide-react';
 
@@ -51,7 +51,7 @@ export const Modal: React.FC<ModalProps> = ({
           sizes[size]
         )}
       >
-        {(title || onClose) && (
+        {(
           <div className="flex items-center justify-between p-4 border-b border-gray-100">
             {title && <h2 className="text-lg font-semibold text-gray-900">{title}</h2>}
             <button
@@ -72,3 +72,4 @@ export const Modal: React.FC<ModalProps> = ({
     </div>
   );
 };
+

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useAuthStore } from '@/store/authStore';
 import { Package, Lock, Mail } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 const loginSchema = z.object({
   email: z.string().email('Email invalide'),
-  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
+  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractÃ¨res'),
 });
 
 type LoginForm = z.infer<typeof loginSchema>;
@@ -27,7 +28,7 @@ export default function LoginPage() {
     setError('');
     try {
       await login(data.email, data.password);
-      const user = useAuth.getState().user;
+      const user = useAuthStore.getState().user;
       
       if (user?.role === 'admin') navigate('/admin');
       else if (user?.role === 'agent') navigate('/agent');
@@ -45,7 +46,7 @@ export default function LoginPage() {
           <Package size={48} className="text-[#0D9488]" />
         </div>
         <h2 className="text-center text-3xl font-extrabold text-gray-900">
-          Connectez-vous à votre compte
+          Connectez-vous Ã  votre compte
         </h2>
       </div>
 
@@ -89,7 +90,7 @@ export default function LoginPage() {
                     "focus:ring-[#0D9488] focus:border-[#0D9488] block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2 border",
                     errors.password && "border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500"
                   )}
-                  placeholder="••••••••"
+                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 />
               </div>
               {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password.message}</p>}
@@ -105,7 +106,7 @@ export default function LoginPage() {
           </form>
           
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>Comptes de démo:</p>
+            <p>Comptes de dÃ©mo:</p>
             <p>client@demo.com, driver@demo.com</p>
             <p>Mot de passe: password</p>
           </div>
@@ -114,3 +115,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+

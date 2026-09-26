@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
 import { Package, LogOut, Menu, X, User } from 'lucide-react';
@@ -47,8 +47,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <User size={20} />
             </div>
             <div>
-              <div className="font-medium text-sm">{user?.name || 'Utilisateur'}</div>
-              <div className="text-xs text-gray-400 capitalize">{user?.role || 'Rôle'}</div>
+              <div className="font-medium text-sm">{user ? ` ` : 'Utilisateur'}</div>
+              <div className="text-xs text-gray-400 capitalize">{user?.role || 'RÃ´le'}</div>
             </div>
           </div>
           <button 
@@ -56,7 +56,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             className="w-full flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded transition-colors"
           >
             <LogOut size={18} />
-            <span>Déconnexion</span>
+            <span>DÃ©connexion</span>
           </button>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <header className="bg-white shadow-sm p-4 hidden md:flex justify-between items-center">
           <h1 className="text-xl font-semibold text-[#1B2A4A]">Tableau de bord</h1>
           <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2">
-            <span>⚠️ Mode Démonstration — Les données affichées sont fictives</span>
+            <span>âš ï¸ Mode DÃ©monstration â€” Les donnÃ©es affichÃ©es sont fictives</span>
           </div>
         </header>
         <main className="flex-1 overflow-auto p-4 md:p-6 bg-[#F3F4F6]">
@@ -76,3 +76,4 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
