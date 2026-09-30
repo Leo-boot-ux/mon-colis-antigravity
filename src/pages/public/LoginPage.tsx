@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -106,9 +106,11 @@ export default function LoginPage() {
           </form>
           
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>Comptes de démo:</p>
-            <p>client@demo.com, driver@demo.com</p>
-            <p>Mot de passe: password</p>
+            <p className="font-semibold mb-2">Comptes de démo :</p>
+            <p>Admin : <span className="font-mono">admin@demo.moncolis.ga</span></p>
+            <p>Client : <span className="font-mono">client@demo.moncolis.ga</span></p>
+            <p>Livreur : <span className="font-mono">livreur@demo.moncolis.ga</span></p>
+            <p className="mt-2">Mot de passe pour tous : <span className="font-mono font-bold">demo1234</span></p>
           </div>
         </div>
       </div>
