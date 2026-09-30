@@ -10,7 +10,7 @@ import { cn } from '@/lib/cn';
 
 const loginSchema = z.object({
   email: z.string().email('Email invalide'),
-  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractÃ¨res'),
+  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
 });
 
 type LoginForm = z.infer<typeof loginSchema>;
@@ -90,7 +90,7 @@ export default function LoginPage() {
                     "focus:ring-[#0D9488] focus:border-[#0D9488] block w-full pl-10 sm:text-sm border-gray-300 rounded-md py-2 border",
                     errors.password && "border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500"
                   )}
-                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
+                  placeholder="••••••••"
                 />
               </div>
               {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password.message}</p>}
@@ -106,7 +106,7 @@ export default function LoginPage() {
           </form>
           
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>Comptes de dÃ©mo:</p>
+            <p>Comptes de démo:</p>
             <p>client@demo.com, driver@demo.com</p>
             <p>Mot de passe: password</p>
           </div>
